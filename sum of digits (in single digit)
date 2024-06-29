@@ -1,0 +1,28 @@
+import java.util.*;
+class Sum1
+{
+public static void main(String arg[])
+{
+int n,a,sum=0,rev=0,p;
+Scanner sc=new Scanner(System.in);
+System.out.println("enter the number:");
+n=sc.nextInt();
+while(n>0)
+{
+a=n%10;
+sum=sum+a;
+n=n/10;
+}
+System.out.println("Sum of Digits:"+sum);
+if(sum>=10)
+{
+while(sum>0)
+{
+p=sum%10;
+rev=rev+p;
+sum=sum/10;
+System.out.println("Sum:"+rev);
+}
+}
+}
+}
