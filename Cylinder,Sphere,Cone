@@ -1,0 +1,59 @@
+class shape
+{
+double r;
+void get()
+{
+r=4;
+}
+void display()
+{
+System.out.println("Radius"+r);
+}
+}
+class sphere extends shape
+{
+double area,volume;
+void cal()
+{
+area=4*3.14*r*r;
+volume=4/3*3.14*r*r*r;
+System.out.println("Area of sphere:"+area);
+System.out.println("Volume of sphere:"+volume);
+}
+}
+class cone extends sphere
+{
+int l,h;
+void get1()
+{
+l=3;
+h=6;
+}
+void call()
+{
+area=3.14*r*(l+r);
+volume=1/3*3.14*r*r*h;
+System.out.println("Area of cone:"+area);
+System.out.println("Volume of cone:"+volume);
+}
+}
+class cylinder extends cone
+{
+void cal1()
+{
+area=2*3.14*r*(h+r);
+volume=3.14*r*r*h;
+System.out.println("Area of cylinder:"+area);
+System.out.println("Volume of cylinder:"+volume);
+}
+}
+public static void main(String arg[])
+{
+cylinder obj=new cylinder()
+obj.get();
+obj.display();
+obj.cal();
+obj.get1();
+obj.call();
+obj.cal1();
+}
