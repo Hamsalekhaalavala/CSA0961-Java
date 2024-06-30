@@ -1,0 +1,112 @@
+class A extends Thread
+{
+public void run()
+{
+int i,a=0,b=1,c=0;
+     for(i=0;i<=10;i++)
+     {
+        c=a+b;
+        a=b;
+        b=c;
+        System.out.println(c);
+}
+}
+}
+class B extends Thread
+{
+public void run()
+{
+int n=1234,rev=0,a;
+while(n!=0)
+{
+a=n%10;
+rev=rev*10+a;
+n=n/10;
+}
+System.out.println("Reverse Number:"+rev);
+}
+}
+class Revfib
+{
+public static void main(String arg[])
+{
+A obj1=new A();
+B obj2=new B();
+obj1.start();
+obj2.start();
+}
+}class A extends Thread
+{
+public void run()
+{
+int i,a=0,b=1,c=0;
+     for(i=0;i<=10;i++)
+     {
+        c=a+b;
+        a=b;
+        b=c;
+        System.out.println(c);
+}
+}
+}
+class B extends Thread
+{
+public void run()
+{
+int n=1234,rev=0,a;
+while(n!=0)
+{
+a=n%10;
+rev=rev*10+a;
+n=n/10;
+}
+System.out.println("Reverse Number:"+rev);
+}
+}
+class Revfib
+{
+public static void main(String arg[])
+{
+A obj1=new A();
+B obj2=new B();
+obj1.start();
+obj2.start();
+}
+}class A extends Thread
+{
+public void run()
+{
+int i,a=0,b=1,c=0;
+     for(i=0;i<=10;i++)
+     {
+        c=a+b;
+        a=b;
+        b=c;
+        System.out.println(c);
+}
+}
+}
+class B extends Thread
+{
+public void run()
+{
+int n=1234,rev=0,a;
+while(n!=0)
+{
+a=n%10;
+rev=rev*10+a;
+n=n/10;
+}
+System.out.println("Reverse Number:"+rev);
+}
+}
+class Revfib
+{
+public static void main(String arg[])
+{
+A obj1=new A();
+B obj2=new B();
+obj1.start();
+obj2.start();
+}
+}
