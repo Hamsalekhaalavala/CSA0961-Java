@@ -1,0 +1,35 @@
+class A 
+{ 
+ int a,b,c; 
+ void get()
+{
+a=10;
+b=20;
+}
+void cal()
+{
+c=a+b;
+System.out.println("Sum of numbers"+c);
+}
+}
+class B extends A
+{
+int d,e;
+void get1()
+{
+d=30;
+}
+void cal1()
+{
+e=c+d;
+System.out.println("Sum of numbers"+e);
+}
+public static void main(String arg[])
+{
+B obj=new B();
+obj.get();
+obj.get1();
+obj.cal();
+obj.cal1();
+}
+}
