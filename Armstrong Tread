@@ -1,0 +1,55 @@
+class ArmstrongThread extends Thread {
+    @Override
+    public void run() {
+        for (int i = 1; i <= 1000; i++) {
+            if (isArmstrong(i)) {
+                System.out.println("Armstrong number: " + i);
+            }
+        }
+    }
+
+    private boolean isArmstrong(int num) {
+        int sum = 0, temp = num;
+        int n = Integer.toString(num).length();
+        while (temp != 0) {
+            int digit = temp % 10;
+            sum += Math.pow(digit, n);
+            temp /= 10;
+        }
+        return sum == num;
+    }
+}
+
+class FibonacciThread extends Thread {
+    @Override
+    public void run() {
+        int n1 = 0, n2 = 1, n3, i, count = 20;
+        System.out.print("Fibonacci series: " + n1 + " " + n2);
+        for (i = 2; i < count; ++i) {
+            n3 = n1 + n2;
+            System.out.print(" " + n3);
+            n1 = n2;
+            n2 = n3;
+        }
+        System.out.println();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        ArmstrongThread t1 = new ArmstrongThread();
+        FibonacciThread t2 = new FibonacciThread();
+
+        t1.start();
+        t2.start();
+
+        try {
+            t1.join();
+            t2.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Threads have finished execution.");
+    }
+}
