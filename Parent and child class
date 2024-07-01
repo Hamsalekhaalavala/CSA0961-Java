@@ -1,0 +1,81 @@
+class Parent {
+    public void even() {
+        System.out.print("Parent class even numbers: ");
+        for (int i = 1; i <= 20; i++) {
+            if (i % 2 == 0) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    public void odd() {
+        System.out.print("Parent class odd numbers: ");
+        for (int i = 1; i <= 20; i++) {
+            if (i % 2 != 0) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    public void prime() {
+        System.out.print("Parent class prime numbers: ");
+        for (int i = 1; i <= 20; i++) {
+            if (isPrime(i)) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    private boolean isPrime(int n) {
+        if (n <= 1) return false;
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0) return false;
+        }
+        return true;
+    }
+}
+
+class Child extends Parent {
+    @Override
+    public void even() {
+        System.out.print("Child class even numbers: ");
+        for (int i = 1; i <= 30; i++) {
+            if (i % 2 == 0) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    @Override
+    public void odd() {
+        System.out.print("Child class odd numbers: ");
+        for (int i = 1; i <= 30; i++) {
+            if (i % 2 != 0) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    @Override
+    public void prime() {
+        System.out.print("Child class prime numbers: ");
+        for (int i = 1; i <= 30; i++) {
+            if (isPrime(i)) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        Child child = new Child();
+        child.even();
+        child.odd();
+        child.prime();
+    }
+}
