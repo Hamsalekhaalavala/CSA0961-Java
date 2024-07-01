@@ -1,0 +1,49 @@
+class MultiplicationTableThread extends Thread {
+    private int number;
+
+    public MultiplicationTableThread(int number) {
+        this.number = number;
+    }
+
+    @Override
+    public void run() {
+        System.out.println("Thread " + number + " is running.");
+        try {
+            for (int i = 1; i <= 10; i++) {
+                System.out.println(number + " X " + i + " = " + (number * i));
+                Thread.sleep(500); // Sleep for 500 milliseconds to simulate work
+            }
+        } catch (InterruptedException e) {
+            System.out.println("Thread " + number + " was interrupted.");
+        }
+        System.out.println("Thread " + number + " has finished.");
+    }
+}
+
+public class MultiplicationTable {
+    public static void main(String[] args) {
+        MultiplicationTableThread tableFor5 = new MultiplicationTableThread(5);
+        MultiplicationTableThread tableFor10 = new MultiplicationTableThread(10);
+
+        System.out.println("Thread for 5 is in NEW state: " + tableFor5.getState());
+        System.out.println("Thread for 10 is in NEW state: " + tableFor10.getState());
+
+        tableFor5.start();
+        tableFor10.start();
+
+        System.out.println("Thread for 5 is in state: " + tableFor5.getState());
+        System.out.println("Thread for 10 is in state: " + tableFor10.getState());
+
+        try {
+            tableFor5.join();
+            tableFor10.join();
+        } catch (InterruptedException e) {
+            System.out.println("Main thread interrupted.");
+        }
+
+        System.out.println("Thread for 5 is in state: " + tableFor5.getState());
+        System.out.println("Thread for 10 is in state: " + tableFor10.getState());
+
+        System.out.println("Main thread has finished.");
+    }
+}
